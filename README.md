@@ -1,72 +1,199 @@
-<h1 align="center">Netflix-Recommendation-System</h1>
-<p><font size="3">
-A web-app which can be used to get recommendations for a series/movie, the app recommends a list of media according to list of entered choices of movies/series in your preferred language using <strong>Python</strong> and <strong>Flask</strong> for backend and <strong>HTML</strong>, <strong>CSS</strong> and <strong>JavaScript</strong> for frontend.
-</p>
+# 🎬 Netflix Movie Recommendation System
 
- # This web-app contains 3 main pages:
-- [Home Page](#home-page)
-- [Recommendation Page](#recommendation-page)
-- [Movie Detail Page](#movie-detail-page)
-- [Netflix Page](#netflix-page)
+##  Overview
 
-## Home Page
-Here the user can choose list of their favourite movies and series and their preferred language. For example, I have entered a list with 2 Horror Movies(Insidious and Insidious Chapter 2), an action series(Supergirl) and a drama series(Suits) as my list of choices and English and Hindi as my preferred languages.
-Clicking on the Get Started button the user will see the list of recommendations.
-![](/app/static/screenshots/Screenshot-HomePage.png)
+This project implements a **content-based movie recommendation system** that suggests movies or series based on user preferences.
 
-## Recommendation Page
-Here the user will get poster images of all the recommended movies and series sorted based upon their IMDb Scores.
-![](/app/static/screenshots/Screenshot-RecommendationPage1.png)
-![](/app/static/screenshots/Screenshot-RecommendationPage2.png)
+The system analyzes movie metadata such as:
 
-Clicking on any poster image, the user will be sent to the Movie Details page for the corresponding title.
+* Genre
+* Tags
+* Actors
+* Viewer ratings
 
-## Movie Detail Page
-Here are the complete details of the user selected title like Genre, Movie Summary, Languages in which movie is available, IMDb scores, Directors, Writers and Actors and so on. User will also find a link at the end of the page for the NEtflix Page of the corresponding title. 
-![](/app/static/screenshots/Screenshot-MovieDetailPage1.png)
-![](/app/static/screenshots/Screenshot-MovieDetailPage2.png)
+and recommends similar content using **machine learning techniques**.
 
-## Netflix Page
-This page is not a part of my web-app but an example what the user will see as the Netflix Page if they choose to click on the Netflix Link for the title.
-You can login into your Netflix account and enjoy watching your selected movie or series from our recommendations.
-![](/app/static/screenshots/Screenshot-NetflixPage.png)
+A **Flask-based web application** is developed to provide an interactive user interface.
 
-# How To Use
+---
 
-To be able to use this web app locally in a development environment you will need the following:
+##  Features
 
-1) You will need [Git](https://git-scm.com) installed on your computer.
+* Select movies or series of interest
+* Choose preferred language
+* Get top recommended movies instantly
+* View detailed information of each movie
+* Interactive web interface
 
-2) Then From your terminal, you should do the following:
+---
 
-```cmd
-# Clone this repository
-git clone https://github.com/garg-priya-creator/Netflix-Recommendation-System.git
+##  Machine Learning Approach
 
-# Go into the repository
-cd netflix-recommendation-system
+This project uses a **Content-Based Filtering** approach:
 
-# Install flask (if you already haven't)
-pip install flask
+### 1. Feature Engineering
+
+Multiple features are combined into a single representation:
+
+* Genre
+* Tags
+* Actors
+* Viewer Rating
+
+### 2. Text Processing
+
+* Converted all features into lowercase
+* Removed spaces and formatted text
+
+### 3. Vectorization
+
+* Used **CountVectorizer** from Scikit-learn
+* Converted textual data into numerical vectors
+
+### 4. Similarity Calculation
+
+* Applied **Cosine Similarity**
+* Measured similarity between movies
+
+### 5. Recommendation
+
+* Ranked movies based on similarity scores
+* Returned top similar movies
+
+---
+
+## 🛠️ Tech Stack
+
+* **Programming Language:** Python
+* **Backend:** Flask
+* **Libraries:**
+
+  * Pandas
+  * Scikit-learn
+  * NumPy
+* **Frontend:** HTML, CSS, JavaScript
+
+---
+
+## 📂 Project Structure
+
+```bash
+Netflix-Recommendation-System
+│
+├── app/
+│   ├── app.py
+│   ├── NetflixDataset.csv
+│   ├── templates/
+│   └── static/
+│
+├── README.md
+└── requirements.txt
+```
+
+---
+
+##  Application Pages
+
+###  Home Page
+
+Users can select their favorite movies/series and preferred language.
+
+![Home](app/static/screenshots/Screenshot-HomePage.png)
+
+---
+
+###  Recommendation Page
+
+Displays recommended movies sorted based on similarity and ratings.
+
+![Recommendation](app/static/screenshots/Screenshot-RecommendationPage1.png)
+![Recommendation](app/static/screenshots/Screenshot-RecommendationPage2.png)
+
+---
+
+###  Movie Detail Page
+
+Shows complete details such as:
+
+* Genre
+* Summary
+* Language
+* IMDb rating
+* Cast and crew
+
+![Details](app/static/screenshots/Screenshot-MovieDetailPage1.png)
+![Details](app/static/screenshots/Screenshot-MovieDetailPage2.png)
+
+---
+
+###  Netflix Page
+
+Redirects to Netflix for watching selected content.
+
+![Netflix](app/static/screenshots/Screenshot-NetflixPage.png)
+
+---
+
+## ⚙️ How to Run the Project
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/rohithg-codes/netflix-movie-recommendation-system.git
+```
+
+2. Navigate to project folder:
+
+```bash
+cd netflix-movie-recommendation-system/app
+```
+
+3. Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+4. Run the application:
+
+```bash
+python app.py
+```
+
+5. Open in browser:
 
 ```
-3) To run this application you don't need to have any special configuration but make sure you don't change the directory of the project otherwise you can recieve errors while you try to run the app.
-
-4) You can run the Netflix React App using the following command from your terminal:
-
-```
-# Run the app
->>set FLASK_APP=app.py
->>flask run
+http://127.0.0.1:5000
 ```
 
-# Author
+---
 
-👤 **Priya Garg**
-- Github: https://github.com/garg-priya-creator
-- Linkedin: https://www.linkedin.com/in/priya-garg-9220381b3
-- Email: priyagarg072@gmail.com
+##  Future Improvements
 
-# Show Your Support 
+* Add collaborative filtering
+* Improve recommendation accuracy
+* Deploy the application on cloud
+* Enhance UI/UX
 
-Give a ⭐️ if you like this project!
+---
+
+##  Learning Outcomes
+
+* Understanding of **content-based recommendation systems**
+* Practical experience with **Scikit-learn and NLP techniques**
+* Building and deploying **Flask applications**
+* Handling real-world datasets
+
+---
+
+## 👤 Author
+
+**Rohith Gottam**
+
+* GitHub: https://github.com/rohithg-codes
+
+---
+
+## ⭐ Show Your Support
+
+If you found this project useful, consider giving it a ⭐ on GitHub!
